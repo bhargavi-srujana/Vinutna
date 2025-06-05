@@ -237,8 +237,8 @@ header
 }
 .logo img
 {
-    height: 120px;
-    width:150px;   
+    height: 100px;
+    width:130px;   
 }
 
 .head
@@ -249,7 +249,7 @@ header
     justify-content: space-between;
     padding-right: 30px;
     padding-left: 30px;
-    padding-top:20px;
+    padding-top:10px;
     flex-wrap: wrap;
     
 }
@@ -272,8 +272,9 @@ header
     cursor: pointer;
 }
 .slide {
-  width: 100%; 
+  width: 90%; 
   padding-top:30px;
+  /* height:350px; */
   overflow: hidden;
   margin: auto;
   position: relative;
@@ -288,7 +289,7 @@ header
   width: 100%;
   /* max-width: 900px; */
   height: 40vw;
-  max-height: 500px;
+  max-height: 350px;
   min-height: 180px;
   flex-shrink: 0;
   transition: transform 0.5s ease;
@@ -340,7 +341,7 @@ header
 .about-section {
       
       padding-right: 40px;
-      padding-bottom: 40px;
+      padding-bottom: 20px;
       padding-left: 40px;
       max-width: 900px;
       margin: auto;
@@ -536,6 +537,7 @@ footer{
     height: 250px;
 
   }
+  
   footer{
     padding:5px !important;
   }
