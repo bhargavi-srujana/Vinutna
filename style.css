@@ -1,0 +1,83 @@
+body {
+  overflow-x: hidden;
+}
+
+.sun {
+  background-color: red;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 0;
+  top: -1000px;
+  left: -600px;
+  width: 100vw;
+  height: 1200px;
+  border-radius: 50%;
+  animation-name: sunrise2;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+.sun3 {
+  background-color: blue;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 0;
+  top: -1000px;
+  left: -250px;
+  width: 100vw;
+  height: 1200px;
+  border-radius: 50%;
+  animation-name: sunrise2;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+
+.sun4 {
+  background-color: yellow;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 0;
+  top: -1000px;
+  left: -250px;
+  width: 100vw;
+  height: 1200px;
+  border-radius: 50%;
+  animation-name: sunrise2;
+  animation-duration: 14s;
+  animation-timing-function: linear;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes sunrise2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10vw, 2vw);
+  }
+  50% {
+    transform: translate(20vw, 1vw);
+  }
+  75% {
+    transform: translate(10vw, 2vw);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+header, .topics, .logo img {
+  position: relative;
+  z-index: 2;
+}
+
+.topics {
+  position: relative;
+  z-index: 2;
+}
+
+/*# sourceMappingURL=style.css.map */

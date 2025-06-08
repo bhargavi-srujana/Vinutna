@@ -1,0 +1,84 @@
+@mixin moving-sphere($color, $top, $left, $delay, $duration)
+ {
+  background-color: $color;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 0;
+  top: $top;
+  left: $left;
+  width: 100%;
+  height: 1200px;
+  border-radius: 50%;
+  animation-name: sunrise2;
+  animation-duration: $duration;
+  animation-timing-function: linear;
+  animation-delay: $delay;
+  animation-iteration-count: infinite;
+}
+body{
+  overflow-x: hidden;
+}
+// .sun {
+//   @include moving-sphere(red, -1000px, -90px, 1s, 10s);
+// }
+// .sun2 {
+//   @include moving-sphere(orange, -1000px, -120px, 8s, 6s);
+// }
+// .sun3 {
+//   @include moving-sphere(blue, -1000px, -60px, 5s, 12s);
+// }
+// .sun4 {
+//   @include moving-sphere(yellow, -1000px, -20px, 2s, 12s);
+// }
+
+.sun{
+  @include moving-sphere(red, -1000px, -600px, 0s, 10s);
+}
+// .sun2
+// {
+//   @include moving-sphere(orange, -1000px, -120px, 3s, 16s);
+// }
+.sun3
+{
+   @include moving-sphere(blue, -1000px, -250px, 2s, 20s);
+}
+.sun4
+{
+   @include moving-sphere(yellow, -1000px, -250px, 5s, 14s);
+}
+ 
+
+@keyframes sunrise2 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(150px, 50px);
+  }
+  50% {
+    transform: translate(300px, 10px);
+  }
+  75% {
+    transform: translate(150px, 50px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+// @keyframes sunrise2 {
+//   0% { transform: translate(0, 0); }
+//   25% { transform: translate(10vw, 2vw); }
+//   50% { transform: translate(20vw, 1vw); }
+//   75% { transform: translate(10vw, 2vw); }
+//   100% { transform: translate(0, 0); }
+// }
+
+header ,.topics, .logo img {
+  position: relative;
+  z-index: 2;
+}
+.topics{
+  position: relative;
+  z-index: 2;
+}

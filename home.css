@@ -2,12 +2,81 @@ body
 {
     background-color:rgba(235, 234, 255, 0.84);
     margin: 0;
+    overflow-x: hidden;
 }
+
 h2{
   font-family: sans-serif;
   margin-left:2rem;
   text-decoration: underline;
   padding:10px;
+}
+
+.apply {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: black;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 999px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.apply:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-apply 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-apply {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.apply:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: 0;
+  top: 0;
+  border-radius: 999px;
 }
 
 @media (max-width: 320px) {
@@ -34,6 +103,7 @@ h2{
   *, *::before, *::after {
     box-sizing: border-box !important;
   }
+
   header, .head {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -66,7 +136,7 @@ h2{
   .left, .right {
     padding-left: 2px !important;
     padding-right: 2px !important;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
   }
   .right {
     gap: 2px;
@@ -94,9 +164,11 @@ h2{
   .about-section {
     padding: 0.2rem 0.1rem;
     gap: 0.2rem;
+    margin:0 !important;
+    padding:0 !important;
   }
   .about-text, .about-image {
-    padding: 0.2rem;
+    padding: 0.2rem !important;
     font-size: 0.7rem;
   }
   .arrow {
@@ -114,12 +186,80 @@ h2{
     border-top-right-radius:0;
     border-bottom-left-radius:8px;
 }
+.why-us .block
+{
+  height: auto !important;
+  width: 80px !important;
+  /* font-size: 10px !important; */
+}
+.why-us .block p{
+  padding-left: 8px !important;
+  /* padding-top: 2px !important; */
+  padding-right: 2px !important;
+  font-size: 8px !important;
+}
+.why-us .block img{
+  height: 30px !important;
+  width: 30px !important;
+  padding: 0 !important;
+  padding-left:5px !important;
+  padding-top:5px !important;
+  margin-top:10px !important;
+}
+
+footer{
+  padding:5px !important;
+}
 }
 
 @media (max-width: 600px) {
   html, body {
     font-size: 13px;
   }
+  .block
+{
+  height: 120px !important;
+  width: 100px !important;
+  /* font-size: 10px !important; */
+}
+.block p{
+  padding-left: 8px !important;
+  padding-top: 2px !important;
+  padding-right: 2px !important;
+  font-size: 9px !important;
+}
+.block img{
+  height: 40px !important;
+  width: 40px !important;
+  padding: 0 !important;
+  padding-left:5px !important;
+  padding-top:5px !important;
+  margin-top:10px !important;
+}
+
+  .topper img{
+    height:100px !important;
+    width:100px !important;
+  }
+  .nrml img{
+    height: 70px !important;
+    width:70px !important;
+  }
+  .image p{
+    font-size: 10px !important;
+    padding-left:5px !important;
+  }
+  .top p{
+    padding-left:20px !important;
+  }
+  .map-box{
+    width:200px !important;
+    height: 150px !important;
+  }
+  .course img{
+    height: 70px !important;
+    width:70px !important;
+  } 
   header, .head {
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -167,7 +307,7 @@ h2{
     gap: 0.5rem;
   }
   .about-text, .about-image {
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     font-size: 0.95rem;
   }
   .arrow {
@@ -180,6 +320,9 @@ h2{
     min-height: 80px;
     max-height: 120px;
     border-radius: 8px;
+  }
+  .topper h4{
+    font-size: 20px !important;
   }
 }
 p{
@@ -261,14 +404,21 @@ header
     justify-content: center;
     
 }
+.marks h4
+{
+  display: flex;
+  align-items: center;
+}
 .topics
 {
     color:rgba(0,0,0,1);
-    background-color: rgba(230, 169, 169, 0.54);
+    /* background-color: rgba(230, 169, 169, 0.54); */
+    background-color: transparent;
     padding:10px;
     font-weight: bold;
-    border: 2px solid rgba(157, 155, 155, 1);
-    border-radius:2px;
+    /* border: 2px solid rgba(157, 155, 155, 1); */
+    /* border-radius:2px; */
+    border:none;
     cursor: pointer;
 }
 .slide {
@@ -399,37 +549,44 @@ header
       display: block;
       order:2;
     }
-.block img
-{
-  width:3.5rem;
-  height: 3.5rem;
-  padding:30px;
-}
-.block p{
-  padding-left:20px;
-  padding-right: 20px;
-}
-.block
-{
-  background-color: rgba(230, 169, 169, 0.54);
-  height:250px;
-  width: 300px;
-  border-radius: 20px;
-}
+
  .why-us{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap:30px;
   justify-content: center;
-  /* padding:20px; */
+ 
  }  
  
- 
+ .block img {
+  display: block;
+  margin: 0 auto 8px auto;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+}
+.block p {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0 10px 6px 10px;
+}
+.block {
+  background-color: rgba(230, 169, 169, 0.54);
+  height: 160px;
+  width: 200px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 8px;
+}
  .block:hover{
   background-color:rgba(111, 172, 218, 0.44) ;
    transform: scale(1.1);
-  transition: transform 1s;
+  transition: transform 0.5s;
 
  } 
  /* .why
@@ -437,6 +594,66 @@ header
   padding:20px;
  } */
 
+ .course img{
+  width:70px;
+  height: 70px;
+}
+.course {
+  /* background: #fff; */
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 170px;
+  box-sizing: border-box;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course p {
+  font-size: 0.9rem;
+  margin: 4px 0 0 0;
+  text-align: center;
+}
+
+.course:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(83, 115, 166, 0.18);
+}
+.Courses ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 700px) {
+  .Courses ul {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+  .course {
+    max-height: 100px;
+    padding: 8px 2px;
+  }
+  .course img {
+    width: 38px;
+    height: 38px;
+  }
+  .course p {
+    font-size: 0.7rem;
+  }
+  .Courses h2 {
+    font-size: 1.1rem;
+    padding: 8px 0;
+  }
+}
  .topper img
  {
   height:200px;
@@ -445,6 +662,13 @@ header
   border:1px solid black;
  }
  .topper h4{
+  font-size: 30px;
+  padding-bottom: 80px;
+  padding-left:20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }
+ .topper
+ {
   display: flex;
   align-items: center;
  }
@@ -459,12 +683,14 @@ header
  {
   text-align: center;
  }
- .top p{
-  padding-left:50px !important;
- }
+
 .image p{
   padding-left:30px;
+  text-align: center;
 }
+ /* .top p{
+  padding-left:50px;
+ } */
  .nrml
  {
   display: flex;
@@ -492,17 +718,19 @@ header
   display:flex;
   flex-direction: row;
 }
-.topper h4
-{
+.topper h4 {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .map-box {
       position: relative;
       width: 100%;
-      max-width: 600px;
-      height: 400px;
+      max-width: 500px;
+      height: 300px;
       /* border: 5px solid #4CAF50;  */
       border-radius: 15px; /* rounded corners */
       overflow: hidden;
@@ -518,7 +746,11 @@ header
       border-radius: 30px;
       /* padding:30px; */
     }
-
+.add{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 footer{
   background-color: rgba(83, 115, 166, 1);
   color:white;
@@ -601,5 +833,4 @@ footer{
     border-bottom-left-radius:0;
 }
 }
-
 
