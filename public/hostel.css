@@ -1,0 +1,315 @@
+ body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #d0cee1;
+  /* background-color: transparent; */
+  color: #000;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure stars stay in background */
+#stars, #stars2, #stars3 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+
+/* Bring all content forward */
+header, .hostels, .events, .gallery, .back-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+/* Back Arrow Styling */
+.back-arrow {
+  /* position: fixed; */
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: black;
+  font-size: 24px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  /* z-index: 5; */
+}
+.back-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Hostels Section */
+.hostels {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding: 100px 20px 40px;
+}
+
+.hostel-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 20px;
+  /* color: #fff; */
+  width: 460px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hostel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+.hostel-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.hostel-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+.hostel-card ul {
+  padding-left: 20px;
+  margin: 0;
+  line-height: 30px;
+  list-style-type: disc;
+}
+
+/* Events & Gallery Section */
+.events, .gallery {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.events h2, .gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  /* color: white; */
+  text-align: center;
+  text-shadow: 1px 1px 2px #000;
+}
+.event-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Event and Gallery Boxes */
+.event-img, .gallery-img {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  height: 150px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+.event-img:hover, .gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .hostels {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .hostel-card {
+    width: 90%;
+  }
+  .events, .gallery {
+    width: 90%;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+}
+.back-arrow {
+  /* position: fixed; */
+  top: 20px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  color: black;
+  font-size: 24px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  /* z-index: 10000; */
+}
+
+@media (max-width: 425px) {
+  .back-arrow {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+  .hostel-card ul {
+    line-height: 24px;
+  }
+  .event-img, .gallery-img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-img, .gallery-img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 425px) {
+  .event-img, .gallery-img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 320px) {
+  .event-img, .gallery-img {
+    height: 80px;
+  }
+}
+
+
+
+@media (max-width: 320px) {
+  .back-arrow {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+  .hostel-card {
+    font-size: 14px;
+    padding: 12px;
+  }
+  .event-img, .gallery-img {
+    height: 80px;
+  }
+}
+
+/* Popup Modal Container */
+.popup-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Image in Popup */
+.popup-image {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1001;
+}
+
+.left {
+  left: 30px;
+}
+
+.right {
+  right: 30px;
+}
+
+ @media (max-width: 768px) {
+      .form-container {
+        width: 90%;
+        margin: 100px auto 40px;
+        padding: 20px;
+      }
+
+      .form-container h2 {
+        font-size: 1.6rem;
+      }
+
+      .back-arrow {
+        font-size: 20px;
+        padding: 8px 12px;
+      }
+    }
+
+    @media (max-width: 425px) {
+      form input, form select, form textarea {
+        font-size: 15px;
+        padding: 8px;
+      }
+
+      form button {
+        font-size: 16px;
+        padding: 10px;
+      }
+
+      .form-container h2 {
+        font-size: 1.4rem;
+      }
+
+      .back-arrow {
+        font-size: 18px;
+        padding: 6px 10px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .form-container {
+        padding: 16px;
+      }
+
+      .form-container h2 {
+        font-size: 1.2rem;
+      }
+    }

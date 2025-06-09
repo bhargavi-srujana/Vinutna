@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply Now</title>
+  <link rel="stylesheet" href="hostel.css" /> 
+  <link rel="stylesheet" href="stars.css"/>
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    form label {
+      display: block;
+      margin: 10px 0 6px;
+      font-weight: bold;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background-color: rgba(255, 255, 255, 0.25);
+      color: black;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.03);
+    }
+    @media (max-width: 600px) {
+    .form-container {
+      max-width: 90%;
+      padding: 18px;
+    }
+
+    .form-container h2 {
+      font-size: 20px;
+    }
+
+    form label {
+      font-size: 13px;
+    }
+
+    form input, form select, form textarea {
+      padding: 7px;
+      font-size: 13px;
+    }
+
+    form button {
+      padding: 9px;
+      font-size: 15px;
+    }
+
+    .back-arrow {
+      font-size: 20px !important;
+      top: 10px !important;
+      left: 10px !important;
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 900px) {
+    .form-container {
+      max-width: 80%;
+      padding: 22px;
+    }
+
+    .form-container h2 {
+      font-size: 22px;
+    }
+  }
+
+  /* Optional: Style the back arrow */
+  .back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .back-arrow:hover {
+    transform: scale(1.1);
+    color: #ccc;
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Star Background -->
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+
+  <!-- Back Button -->
+  <button class="back-arrow" onclick="window.location.href='home.html'">←</button>
+
+  <!-- Form Section -->
+  <div class="form-container">
+    <h2>Apply Now</h2>
+    <form id="applyForm">
+      <label for="name">Name of the student</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="group">Group</label>
+      <select id="group" name="group" required>
+        <option value="">--Select--</option>
+        <option value="MPC">MPC (JEE and JEE advanced)</option>
+        <option value="BiPC">BiPC (NEET)</option>
+        <option value="Long term JEE">Long term JEE</option>
+        <option value="Long term NEET">Long term NEET</option>
+        <option value="EAPCET">EAPCET</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="address" rows="4" >Address</label>
+      <textarea id="address" rows="4" name="address"  required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // function submitForm() {
+    //   alert("Form submitted successfully!");
+      
+    // }
+    document.getElementById("applyForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.querySelector("input[name='name']").value,
+      phone: document.querySelector("input[name='phone']").value,
+      group: document.querySelector("select[name='group']").value,
+      email: document.querySelector("input[name='email']").value,
+      address: document.querySelector("textarea[name='address']").value,
+    };
+
+    fetch("/apply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => alert(res.message))
+      .catch((err) => console.error("Error:", err));
+  });
+  </script>
+
+</body>
+</html>

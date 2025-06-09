@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hostel Page</title>
+  <link rel="stylesheet" href="hostel.css">
+  <link rel="stylesheet" href="stars.css">
+</head>
+<body>
+  
+  <div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+
+<header>
+    <button class="back-arrow" onclick="window.location.href='home.html'">←</button>
+    
+
+  </header>
+
+  <section class="hostels">
+    <div class="hostel-card">
+      <h3>Girls Hostel</h3>
+      <img src="./images/hostel.jpg" alt="Girls Hostel">
+      <ul>
+        <li>Hostels are hygienic.</li>
+        <li>Phones are not allowed.</li>
+        <li>Friendly environment.</li>
+         <li>Hostels are hygienic</li>
+        <li>Daily exercises in the morning</li>
+        <li>24/7 wardens available</li>
+      </ul>
+    </div>
+    <div class="hostel-card">
+      <h3>Boys Hostel</h3>
+      <img src="./images/hostel.jpg" alt="Boys Hostel">
+      <ul>
+        <li>Hostels are hygienic.</li>
+        <li>Phones are not allowed.</li>
+        <li>Friendly environment.</li>
+         <li>Hostels are hygienic</li>
+        <li>Daily exercises in the morning</li>
+        <li>24/7 wardens available</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="events">
+    <h2>Events</h2>
+    <div class="grid">
+      <div class="event-img">
+        <img src="./images/events/img1.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img2.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img3.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img4.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img5.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img6.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img7.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img8.png"/>
+      </div>
+      <div class="event-img">
+        <img src="./images/events/img9.png"/>
+      </div>
+    </div>
+    
+
+  </section>
+
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="grid gallery-grid">
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+      <div class="gallery-img"></div>
+    </div>
+  </section>
+  <div class="popup-modal" id="popupModal">
+  <span class="close-btn" id="closeBtn">×</span>
+  <span class="arrow left" id="prevArrow">❮</span>
+  <img class="popup-image" id="popupImage" src="" alt="Popup Image">
+  <span class="arrow right" id="nextArrow">❯</span>
+</div>
+  <script>
+  const popupModal = document.getElementById("popupModal");
+  const popupImage = document.getElementById("popupImage");
+  const closeBtn = document.getElementById("closeBtn");
+  const prevArrow = document.getElementById("prevArrow");
+  const nextArrow = document.getElementById("nextArrow");
+
+  const images = Array.from(document.querySelectorAll(".event-img img"));
+  let currentIndex = 0;
+
+  function openModal(index) {
+    currentIndex = index;
+    popupImage.src = images[index].src;
+    popupModal.style.display = "flex";
+  }
+
+  function closeModal() {
+    popupModal.style.display = "none";
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    popupImage.src = images[currentIndex].src;
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    popupImage.src = images[currentIndex].src;
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => openModal(index));
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  prevArrow.addEventListener("click", showPrev);
+  nextArrow.addEventListener("click", showNext);
+
+  document.addEventListener("keydown", function(e) {
+  if (popupModal.style.display === "flex") {
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrev();
+    if (e.key === "Escape") closeModal();
+  }
+});
+
+
+  popupModal.addEventListener("click", (e) => {
+    if (e.target === popupModal) closeModal();
+  });
+</script>
+
+</body>
+</html>
