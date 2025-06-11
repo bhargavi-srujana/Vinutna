@@ -102,7 +102,7 @@ header, .hostels, .events, .gallery, .back-arrow {
   text-align: center;
   text-shadow: 1px 1px 2px #000;
 }
-.event-img img{
+.event-img img,.gallery-img img{
     width: 100%;
     height: 100%;
     border-radius: 12px;
@@ -127,6 +127,115 @@ header, .hostels, .events, .gallery, .back-arrow {
   transform: scale(1.03);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
+/* Hostels Container */
+.hostels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 100px 20px 40px;
+}
+
+/* Each Card */
+.hostel-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* make it take half of the row minus gap, but never go below 280px */
+  flex: 1 1 calc(50% - 60px);
+  min-width: 280px;
+  max-width: 460px;
+  padding: 20px;
+}
+
+/* Hover lift */
+.hostel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* Title */
+.hostel-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/* Internal layout: image + list */
+.card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Image takes 45% of card, keeps aspect ratio */
+.card img {
+  width: 45%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* List takes the remainder */
+.card ul {
+  flex: 1;
+  padding-left: 20px;
+  margin: 0;
+  line-height: 1.6;
+  list-style-type: disc;
+}
+
+/* R esponsive tweaks */
+@media (max-width: 768px) {
+  .hostel-card {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
+  .card {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .card img {
+    width: 100%;
+  }
+}
+
+.hostel-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px;
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+}
+
+.card {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.card img {
+  width: 40%;
+  max-width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.card ul {
+  flex: 1;
+  font-size: 1.1rem;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+
 
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 768px) {

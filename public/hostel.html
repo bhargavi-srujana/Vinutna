@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hostel Page</title>
+  <title>Vinutna Junior College</title>
+  <link rel="icon" href="./images/vinutnaLogo.png" type="image/png">
   <link rel="stylesheet" href="hostel.css">
   <link rel="stylesheet" href="stars.css">
 </head>
@@ -21,29 +22,20 @@
 
   <section class="hostels">
     <div class="hostel-card">
-      <h3>Girls Hostel</h3>
-      <img src="./images/hostel.jpg" alt="Girls Hostel">
+      <h3>Hostel</h3>
+      <div class="card">
+        <img src="./images/hostel.png" alt="Girls Hostel">
       <ul>
         <li>Hostels are hygienic.</li>
         <li>Phones are not allowed.</li>
         <li>Friendly environment.</li>
-         <li>Hostels are hygienic</li>
         <li>Daily exercises in the morning</li>
         <li>24/7 wardens available</li>
       </ul>
+      </div>
+      
     </div>
-    <div class="hostel-card">
-      <h3>Boys Hostel</h3>
-      <img src="./images/hostel.jpg" alt="Boys Hostel">
-      <ul>
-        <li>Hostels are hygienic.</li>
-        <li>Phones are not allowed.</li>
-        <li>Friendly environment.</li>
-         <li>Hostels are hygienic</li>
-        <li>Daily exercises in the morning</li>
-        <li>24/7 wardens available</li>
-      </ul>
-    </div>
+    
   </section>
 
   <section class="events">
@@ -84,15 +76,29 @@
   <section class="gallery">
     <h2>Gallery</h2>
     <div class="grid gallery-grid">
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
-      <div class="gallery-img"></div>
+      <div class="gallery-img">
+        <img src="https://content.jdmagicbox.com/comp/kakinada/c8/9999px884.x884.190406121041.v2c8/catalogue/vinutna-iit-medical-academy-kakinada-0hk0uzc9l3.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery1.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery2.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery3.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery4.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery5.jpg"/>
+      </div>
+      <div class="gallery-img">
+        <img src="./images/gallery/gallery6.jpg"/>
+      </div>
+      <!-- <div class="gallery-img"></div> -->
+      <!-- <div class="gallery-img"></div> -->
     </div>
   </section>
   <div class="popup-modal" id="popupModal">
@@ -108,7 +114,8 @@
   const prevArrow = document.getElementById("prevArrow");
   const nextArrow = document.getElementById("nextArrow");
 
-  const images = Array.from(document.querySelectorAll(".event-img img"));
+  const images = Array.from(document.querySelectorAll(".event-img img, .gallery-img img"));
+  
   let currentIndex = 0;
 
   function openModal(index) {

@@ -1,3 +1,5 @@
+const dotenv =require('dotenv');
+dotenv.config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
@@ -5,15 +7,18 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5353;
+const mail=process.env.EMAIL;
+const pass=process.env.PASS;
+console.log("PORT from env:", process.env.PORT);
+
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public")); // to serve apply.html
+app.use(express.static("public")); 
 
-// Route to handle form submission
 app.post("/apply", async (req, res) => {
   const { name, phone, group, email, address } = req.body;
 
@@ -21,14 +26,14 @@ app.post("/apply", async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "pithanisrujana@gmail.com",     // replace with your email
-      pass: "wfbpplugwhqgugyp"         // generate from Gmail app passwords
+      user: `${mail}`,    
+      pass: `${pass}`         
     }
   });
 
   let mailOptions = {
-    from:"pithanisrujana@gmail.com",
-    to: "pithanisrujana@gmail.com",         // where you want to receive the info
+    from: `${mail}`,
+    to:  `${mail}`,         
     subject: "New Student Application",
     html: `
       <h3>New Application Details</h3>
